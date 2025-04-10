@@ -9,13 +9,13 @@ export class App extends React.Component<State> {
     pressedKey: '',
   };
 
-  handleKeyClick = (event: KeyboardEvent) => {
+  handleKeyUp = (event: KeyboardEvent) => {
     event.preventDefault();
     this.setState({ pressedKey: event.key });
   };
 
   componentDidMount() {
-    document.addEventListener('keyup', this.handleKeyClick);
+    document.addEventListener('keyup', this.handleKeyUp);
   }
 
   shouldComponentUpdate(nextState: State): boolean {
@@ -23,7 +23,7 @@ export class App extends React.Component<State> {
   }
 
   componentWillUnmount() {
-    document.removeEventListener('keyup', this.handleKeyClick);
+    document.removeEventListener('keyup', this.handleKeyUp);
   }
 
   render() {
